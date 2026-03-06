@@ -1,0 +1,29 @@
+{
+  "name": "sheafbase",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "svelte-kit sync && bunx --bun vite dev",
+    "build": "svelte-kit sync && bunx --bun vite build",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-node": "^5.5.4",
+    "@sveltejs/kit": "^2.53.3",
+    "@sveltejs/vite-plugin-svelte": "^6.2.4",
+    "@tailwindcss/typography": "0.5.13",
+    "autoprefixer": "10.4.19",
+    "svelte": "5.53.5",
+    "svelte-check": "^4.4.4",
+    "tailwindcss": "3.4.19",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1",
+    "marked": "^17.0.3",
+    "marked-highlight": "^2.2.3",
+    "mermaid": "^11.12.3"
+  }
+}

@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'highlight.js/styles/github-dark.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-ink-950 text-ink-100;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-ink-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-ink-600 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-ink-500; }
+}
+
+@layer components {
+  .wiki-link {
+    @apply text-leaf-400 border-b border-leaf-500/40 hover:border-leaf-400
+           transition-colors duration-150 no-underline;
+  }
+  .file-icon-md   { @apply text-green-400; }
+  .file-icon-docx { @apply text-blue-400; }
+  .file-icon-odt  { @apply text-amber-400; }
+  .file-icon-pdf  { @apply text-rose-400; }
+}
