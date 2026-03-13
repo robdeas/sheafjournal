@@ -1,4 +1,4 @@
-# Sheafbase (codename)
+# SheafJournal
 
 A local-first Personal Knowledge Manager. Standard SvelteKit — one process, one dev command.
 
