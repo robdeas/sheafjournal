@@ -6,7 +6,7 @@ A local-first Personal Knowledge Manager. Standard SvelteKit — one process, on
 
 - **SvelteKit** with `adapter-node` — pages, routing, and API server routes in one project
 - **better-sqlite3** — metadata, tags, search index
-- **Go (sheaflauncher)** — thin webview shell, spawns the built SvelteKit app
+- **Go (sheafgate)** — thin webview shell, spawns the built SvelteKit app
 
 ## Development
 

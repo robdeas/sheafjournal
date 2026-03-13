@@ -18,7 +18,7 @@
   along with SheafJournal. If not, see <https://www.gnu.org/licenses/>.
 -->
 <script>
-    import ManualLoginPage from '$lib/sheaflauncher/ManualLoginPage.svelte';
+    import ManualLoginPage from '$lib/sheafgate/ManualLoginPage.svelte';
 </script>
 
 <ManualLoginPage />

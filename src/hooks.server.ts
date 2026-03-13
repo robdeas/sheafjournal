@@ -13,17 +13,17 @@
 // limitations under the License.
 
 import type { Handle } from '@sveltejs/kit';
-import { createAuthHandle,  isValidSession, bootstrapPasswordFromEnv, isPasswordSet } from '$lib/sheaflauncher/auth';
-import { assertLocalhostOnly, emitReadySignal } from '$lib/sheaflauncher/serverInit';
+import { createAuthHandle,  isValidSession, bootstrapPasswordFromEnv, isPasswordSet } from '$lib/sheafgate/auth';
+import { assertLocalhostOnly, emitReadySignal } from '$lib/sheafgate/serverInit';
 
 // Security preflight — refuse to start if not bound to localhost
 assertLocalhostOnly();
 bootstrapPasswordFromEnv();
 emitReadySignal();
 
-console.error('[sheaflauncher] cwd:', process.cwd());
-console.error('[sheaflauncher] password set?', isPasswordSet());
+console.error('[sheafgate] cwd:', process.cwd());
+console.error('[sheafgate] password set?', isPasswordSet());
 
-const PUBLIC_PATHS = new Set(['/login', '/sheaflauncher-control']);
+const PUBLIC_PATHS = new Set(['/login', '/sheafgate-control']);
 
 export const handle = createAuthHandle(PUBLIC_PATHS);

@@ -14,12 +14,12 @@
 
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
-// Must use relative path — $lib alias is not available in vite config context
-import { sheafLauncherDefines } from './src/lib/sheaflauncher/vite-plugin';
+// Must use relative path — $lib alias is not available in vite config context it must be ./src/lib/sheafgate/vite-plugin
+import { sheafGateLauncherDefines } from './src/lib/sheafgate/vite-plugin';
 
 export default defineConfig({
   plugins: [sveltekit()],
   define: {
-    ...sheafLauncherDefines(),
+    ...sheafGateLauncherDefines(),
   }
 });

@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Build-time constant injected via vite define from sheaf-launcher-engine.env
+// Build-time constant injected via vite define from sheafgate-launcher-engine.env
 import type {Handle} from "@sveltejs/kit";
 
-declare const __PKM_LOGIN_UUID__: string;
+declare const __SHEAFGATE_LOGIN_UUID__: string;
 
-export const LOGIN_UUID: string = __PKM_LOGIN_UUID__;
+export const LOGIN_UUID: string = __SHEAFGATE_LOGIN_UUID__;
 
-export const SESSION_COOKIE = 'pkm_session';
+export const SESSION_COOKIE = 'sheafgate_session';
 
 // ── Session store ─────────────────────────────────────────────────────────────
 const sessions = new Set<string>();
@@ -60,28 +60,28 @@ export function uptimeSeconds(): number {
 
 // ── Password bootstrap ────────────────────────────────────────────────────────
 // Called once at server startup from hooks.server.ts.
-// In production the Go launcher passes the password via SHEAF_LAUNCHER_PASSWORD.
+// In production the Go launcher passes the password via SHEAFGATE_LAUNCHER_PASSWORD.
 // In dev (engine run directly) a random password is generated and logged.
 export function bootstrapPasswordFromEnv(): void {
-    const envPassword = process.env.SHEAF_LAUNCHER_PASSWORD;
+    const envPassword = process.env.SHEAFGATE_LAUNCHER_PASSWORD;
     if (envPassword) {
         setPassword(envPassword);
-        delete process.env.SHEAF_LAUNCHER_PASSWORD;
-        console.error('[sheaflauncher] password set from env');
+        delete process.env.SHEAFGATE_LAUNCHER_PASSWORD;
+        console.error('[sheafgate] password set from env');
         return;
     }
 
     const devPassword = crypto.randomUUID();
     setPassword(devPassword);
     console.error('');
-    console.error('⚠️  WARNING: SHEAF_LAUNCHER_PASSWORD not set');
+    console.error('⚠️  WARNING: SHEAFGATE_LAUNCHER_PASSWORD not set');
     console.error('⚠️  Running in DEV MODE with random password:', devPassword);
     console.error('⚠️  RUN VIA LAUNCHER APPLICATION');
-    console.error('⚠️  Or set SHEAF_LAUNCHER_PASSWORD env var for production');
+    console.error('⚠️  Or set SHEAFGATE_LAUNCHER_PASSWORD env var for production');
     console.error('');
 }
 
-// src/lib/sheaflauncher/auth.ts — add this:
+// src/lib/sheafgate/auth.ts — add this:
 export function createAuthHandle(publicPaths: Set<string>): Handle {
     return async ({ event, resolve }) => {
         if (publicPaths.has(event.url.pathname)) {

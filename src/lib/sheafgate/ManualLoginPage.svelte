@@ -24,7 +24,7 @@
             return;
         }
         const params = new URLSearchParams({ uuid: uuid.trim(), password: password.trim() });
-        window.location.href = `/sheaflauncher-control?${params.toString()}`;
+        window.location.href = `/sheafgate-control?${params.toString()}`;
     }
 </script>
 

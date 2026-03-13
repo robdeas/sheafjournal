@@ -45,8 +45,8 @@ export function assertLocalhostOnly(): void {
 
     const boundHost = process.env.HOST ?? '0.0.0.0';
     if (boundHost !== '127.0.0.1') {
-        console.error('[sheaflauncher] FATAL: HOST must be 127.0.0.1, got:', boundHost);
-        console.error('[sheaflauncher] Do not run the engine directly — use the launcher.');
+        console.error('[sheafgate] FATAL: HOST must be 127.0.0.1, got:', boundHost);
+        console.error('[sheafgate] Do not run the engine directly — use the launcher.');
         process.exit(1);
     }
 }

@@ -51,7 +51,7 @@ dist-linux/
 # We can ignore the .env files because the Makefile generates them fresh
 # and the Go binary bakes the UUID in via -ldflags.
 # sheaf-launcher.env
-# sheaf-launcher-engine.env
+# sheafgate-launcher-engine.env
 bun.zip
 
 

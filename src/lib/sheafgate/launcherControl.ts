@@ -26,7 +26,7 @@ function checkUuid(url: URL): boolean {
     return url.searchParams.get('uuid') === LOGIN_UUID;
 }
 
-// GET /sheaflauncher-control?uuid=xxx&password=xxx
+// GET /sheafgate-control?uuid=xxx&password=xxx
 // Validates UUID + password, sets session cookie, redirects to /.
 export const GET: RequestHandler = ({ url, cookies }) => {
     if (!checkUuid(url)) {
@@ -59,7 +59,7 @@ export const GET: RequestHandler = ({ url, cookies }) => {
     });
 };
 
-// POST /sheaflauncher-control?uuid=xxx
+// POST /sheafgate-control?uuid=xxx
 // Heartbeat — Go calls this periodically to confirm the app is alive.
 export const POST: RequestHandler = ({ url }) => {
     if (!checkUuid(url)) {
@@ -76,7 +76,7 @@ export const POST: RequestHandler = ({ url }) => {
     );
 };
 
-// DELETE /sheaflauncher-control?uuid=xxx
+// DELETE /sheafgate-control?uuid=xxx
 // Shutdown — Go calls this for clean exit.
 export const DELETE: RequestHandler = ({ url }) => {
     if (!checkUuid(url)) {
